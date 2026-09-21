@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Melissa 💛</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:'Cormorant Garamond',serif;background:radial-gradient(circle at 50% 30%,#fffdf3 0,#fff8d8 42%,#f7e8a8 100%);color:#5b4212;overflow-x:hidden}
+body{display:flex;justify-content:center;align-items:center;min-height:100vh;padding:22px}
+.scene{position:relative;width:min(100%,1000px);min-height:calc(100vh - 44px);display:flex;justify-content:center;align-items:center;overflow:hidden}
+.garden{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.flower{position:absolute;width:var(--s);height:var(--s);left:var(--x);top:var(--y);z-index:0;animation:float var(--d) ease-in-out infinite alternate;filter:drop-shadow(0 4px 5px #a88a2240)}
+.flower .p{position:absolute;width:42%;height:65%;background:var(--pc,#ffd83d);border-radius:55% 55% 45% 45%;left:29%;top:2%;transform-origin:50% 72%}.flower .p:nth-child(1){transform:rotate(0deg) translateY(-13%)}.flower .p:nth-child(2){transform:rotate(72deg) translateY(-13%)}.flower .p:nth-child(3){transform:rotate(144deg) translateY(-13%)}.flower .p:nth-child(4){transform:rotate(216deg) translateY(-13%)}.flower .p:nth-child(5){transform:rotate(288deg) translateY(-13%)}.flower .c{position:absolute;width:27%;height:27%;border-radius:50%;background:var(--cc,#b77b10);left:36.5%;top:36.5%;z-index:2}
+@keyframes float{from{transform:translateY(-5px) rotate(-3deg)}to{transform:translateY(9px) rotate(4deg)}}
+.envelope-wrap{position:relative;z-index:5;width:min(760px,88vw);perspective:1400px;transition:.7s ease}.envelope-wrap.opened{transform:translateY(-2vh)}
+.envelope{position:relative;width:100%;height:clamp(260px,38vw,430px);max-height:62vh;background:#f6d77d;border-radius:16px;box-shadow:0 24px 60px #74551238,0 3px 0 #d1a63e inset;cursor:pointer;overflow:visible}
+.envelope:before{content:'';position:absolute;inset:0;border-radius:16px;background:linear-gradient(145deg,#ffe8a6,#edc963);z-index:1}
+.flap{position:absolute;left:0;top:0;width:100%;height:57%;background:#ffe6a0;clip-path:polygon(0 0,100% 0,50% 100%);z-index:4;transform-origin:top center;transition:transform 1s cubic-bezier(.2,.8,.2,1),z-index 0s 0.5s;filter:drop-shadow(0 5px 5px #805f1820)}
+.opened .flap{transform:rotateX(180deg);z-index:0}
+.seal{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);width:68px;height:68px;border-radius:50%;background:#d7a719;border:5px solid #ffe99d;display:grid;place-items:center;font-size:30px;z-index:7;box-shadow:0 5px 15px #76571744;transition:opacity .45s,transform .45s}.opened .seal{opacity:0;transform:translate(-50%,-50%) scale(.5);pointer-events:none}
+.letter{position:absolute;z-index:2;left:7%;right:7%;top:7%;bottom:7%;background:#fffdf5;border-radius:12px;padding:clamp(24px,5vw,48px);box-shadow:0 10px 28px #73531320;overflow:auto;opacity:0;transform:translateY(28%);transition:opacity .7s .25s,transform 1s .25s;pointer-events:none}
+.opened .letter{opacity:1;transform:translateY(-25%);pointer-events:auto}
+.letter h1{font-family:'Great Vibes',cursive;font-size:clamp(42px,7vw,72px);font-weight:400;text-align:center;margin:0 0 18px;color:#bd8a12}.letter p{font-size:clamp(19px,2.3vw,27px);line-height:1.55;margin:0 0 18px}.signature{text-align:right;font-family:'Great Vibes',cursive;font-size:36px;color:#bd8a12;margin-top:24px}
+.lyrics{margin-top:55px;padding:28px 18px 45px;border-top:1px solid #ead79b;text-align:center}.lyrics h2{font-family:'Great Vibes',cursive;font-weight:400;font-size:clamp(36px,5vw,54px);margin:0 0 18px;color:#bd8a12}.lyric-line{min-height:1.45em;font-size:clamp(21px,2.5vw,29px);line-height:1.5;margin:6px 0;color:#b8a985;transition:color .25s,text-shadow .25s}.lyric-line.active{color:#9b6900;text-shadow:0 0 18px #f3cf5b55}.word{display:inline-block;margin-right:.28em;opacity:.18;transform:translateY(3px);transition:opacity .12s,transform .12s}.word.on{opacity:1;transform:none;color:#a96f00}
+.controls{position:fixed;z-index:20;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:10px;align-items:center;background:#fffdf4e8;border:1px solid #e5cd80;border-radius:999px;padding:8px 13px;box-shadow:0 8px 30px #72571325;backdrop-filter:blur(8px)}button{border:0;background:#d9ad2c;color:#fff;border-radius:999px;padding:11px 18px;font-family:inherit;font-size:17px;cursor:pointer;box-shadow:0 3px 8px #73591333}button:hover{background:#c99913}.time{font-size:15px;min-width:100px;text-align:center;color:#775b1e}
+.hint{display:none}
+@media(max-width:650px){body{padding:10px}.scene{min-height:calc(100vh - 20px)}.envelope{height:250px}.opened .letter{transform:translateY(-18%)}.letter{left:4%;right:4%;padding:25px 20px}.controls{bottom:10px}.time{display:none}.flower{opacity:.75}}
+</style>
+</head>
+<body>
+<div class="garden" id="garden" aria-hidden="true"></div>
+<div class="scene">
+  <div class="envelope-wrap" id="wrap">
+    <div class="envelope" id="envelope" aria-label="Abrir carta">
+      <div class="flap"></div><div class="seal">💛</div>
+      <article class="letter" id="letter">
+        <h1>Para Melissa</h1>
+        <p>Melissa, hoy la mayoría de personas regalan flores amarillas a sus seres queridos. 🌼</p>
+        <p>Y cuando pienso en un ser querido, pienso en la persona que más amo en este mundo y es mi novia, amiga y mi razon de existir, o sea, tú. 💛</p>
+        <p>Y no hay un momento en el que no piense en ti; sinceramente, todos los días te recuerdo y todos los días veo tus fotos en mi celular. 📱❤️</p>
+        <p>Lo hago porque quiero siempre dar lo mejor de mí, porque cuando te veo mi corazón late con tanta fuerza que solo quiero pensar en ti. 🥹💛</p>
+        <p>Tal vez no suene muy sano, pero te amo y como dicen por ahí: <em>El mejor amor viene del cerro</em>, ji ji. 🌻❤️</p>
+        <div class="signature">Te quiero tanto, Melissa. 💛</div>
+        <section class="lyrics" id="lyricsSection">
+          <h2>Te quiero tanto 🎶</h2>
+          <div id="lyrics"></div>
+        </section>
+      </article>
+    </div>
+  </div>
+</div>
+<div class="controls"><button id="musicBtn">▶ Música</button><span class="time" id="time">0:00 / 5:25</span></div>
+<div id="audioStatus" style="display:none;position:fixed;z-index:30;left:50%;bottom:78px;transform:translateX(-50%);max-width:92vw;background:#fff3f0;color:#8a2a1a;border:1px solid #e8a99c;border-radius:14px;padding:10px 16px;font-size:16px;text-align:center;box-shadow:0 6px 20px #0002"></div>
+<audio id="audio" preload="auto" playsinline></audio>
+<script>
+const audio=document.getElementById('audio'), envelope=document.getElementById('envelope'), wrap=document.getElementById('wrap'), btn=document.getElementById('musicBtn'), timeEl=document.getElementById('time'), lyricsEl=document.getElementById('lyrics');
+const lines=[
+ ['Nunca digas que te vas sin querer regresar',2.27,6.53],
+ ['Cuando, de ti, me enamoré',6.53,9.33],
+ ['Cuando, cien años, ya te amé',9.33,12.70],
+ ['Llévame siempre al recordar',12.70,17.83],
+ ['Viéndote bailar en aquel cerro Coronel',17.83,22.70],
+ ['Y, ya, mil veces, te besé',22.70,25.65],
+ ['Y, no lo niego, me clavé',25.65,28.60],
+ ['Llévame siempre al recordar',28.60,34.60],
+ ['Te he visto en frente, sonriente, valiente, te quiero tanto',34.60,44.20],
+ ['Vestido blanco, en el medio tu alma, te quiero tanto',44.20,54.62],
+ ['Me duele fuerte pensar que algún día te encuentre ausente',54.62,64.67],
+ ['Me duele fuerte pensar que algún día te encuentre ausente',64.67,76.83],
+ ['Te siento al cantar y al escuchar cualquier canción',76.83,81.27],
+ ['Bonita que hable del amor, de lo que siento ayer y hoy',81.27,87.47],
+ ['Siempre te llevo al despertar',87.47,95.30],
+ ['Te vi a los ojos bien',95.30,103.10],
+ ['Sentí cariño fiel',103.10,110.44],
+ ['Si me rompiera aquí',110.44,118.13],
+ ['Esperaría por ti',118.13,123.85],
+ ['Te he visto en frente, sonriente, valiente, te quiero tanto',123.85,134.55],
+ ['Vestido blanco, en el medio tu alma, te quiero tanto',134.55,144.45],
+ ['Me duele fuerte pensar que algún día te encuentre ausente',144.45,154.89],
+ ['Me duele fuerte pensar que algún día te encuentre ausente',154.89,165.31],
+ ['Te vi a los ojos bien',198.60,206.60],
+ ['Sentí cariño fiel',206.60,213.64],
+ ['Si me rompiera aquí',213.64,221.37],
+ ['Esperaría por ti',221.37,227.91]
+];
+function makeLyrics(){lyricsEl.innerHTML='';for(const [text,start,end] of lines){const d=document.createElement('div');d.className='lyric-line';d.dataset.start=start;d.dataset.end=end;const words=text.split(/\s+/);words.forEach((w,i)=>{const s=document.createElement('span');s.className='word';s.textContent=w;s.dataset.t=start+(end-start)*0.85*(i/words.length);d.appendChild(s)});lyricsEl.appendChild(d)}}
+makeLyrics();
+function fmt(v){v=Math.max(0,v);return Math.floor(v/60)+':'+String(Math.floor(v%60)).padStart(2,'0')}
+let lastActive=null;
+function followActive(){
+  const letter=document.getElementById('letter');
+  const cur=document.querySelector('.lyric-line.active');
+  if(!cur||cur===lastActive)return;
+  const prev=lastActive||document.querySelector('#lyricsSection h2');
+  lastActive=cur;
+  const L=letter.getBoundingClientRect(), P=prev.getBoundingClientRect();
+  if(P.bottom>L.top&&P.top<L.bottom){
+    letter.scrollTo({top:cur.offsetTop-letter.clientHeight/2+cur.offsetHeight/2,behavior:'smooth'});
+  }
+}
+function sync(){const t=audio.currentTime;timeEl.textContent=fmt(t)+' / 5:25';document.querySelectorAll('.lyric-line').forEach(line=>{const active=t>=+line.dataset.start&&t<+line.dataset.end;line.classList.toggle('active',active);line.querySelectorAll('.word').forEach(w=>w.classList.toggle('on',t>=+w.dataset.t))});followActive()}
+const CANDIDATES=['te-quiero-tanto.mp3','Te quiero tanto.mp3','Kevin Kaarl - te quiero tanto.flac','Kevin_Kaarl_-_te_quiero_tanto.flac'];
+const statusEl=document.getElementById('audioStatus');
+let srcIdx=0, wantPlay=false;
+function loadSrc(){audio.src=encodeURI(CANDIDATES[srcIdx]);audio.load()}
+audio.addEventListener('error',()=>{
+  console.warn('No se pudo cargar:',CANDIDATES[srcIdx]);
+  srcIdx++;
+  if(srcIdx<CANDIDATES.length){loadSrc()}
+  else{btn.textContent='▶ Música';statusEl.style.display='block';statusEl.textContent='No encuentro el archivo de audio. Sube te-quiero-tanto.mp3 a la misma carpeta que index.html.'}
+});
+audio.addEventListener('canplay',()=>{statusEl.style.display='none';if(wantPlay&&audio.paused){play()}});
+loadSrc();
+audio.addEventListener('timeupdate',sync);audio.addEventListener('ended',()=>{btn.textContent='▶ Música'});
+async function play(){try{await audio.play();btn.textContent='⏸ Pausar'}catch(e){console.error(e);btn.textContent='▶ Música'}}
+envelope.addEventListener('click',()=>{if(!wrap.classList.contains('opened')){wrap.classList.add('opened');wantPlay=true;play()}});
+btn.addEventListener('click',()=>{if(audio.paused){wantPlay=true;play()}else{wantPlay=false;audio.pause();btn.textContent='▶ Música'}});
+
+/* ===== Jardín de flores amarillas repartidas por toda la pantalla ===== */
+const gardenEl=document.getElementById('garden');
+function rng(seed){return function(){seed|=0;seed=seed+0x6D2B79F5|0;let t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function buildGarden(){
+  const W=window.innerWidth, H=window.innerHeight, rand=rng(20260921);
+  const mobile=W<650, k=mobile?0.72:1;
+  const r=wrap.getBoundingClientRect(), pad=mobile?14:28;
+  const ex={l:r.left-pad,r:r.right+pad,t:r.top-pad-Math.min(60,H*0.08),b:r.bottom+pad};
+  const target=Math.max(26,Math.min(78,Math.round(W*H/15000)));
+  const petalColors=['#ffd83d','#ffd83d','#ffcf1f','#ffe066','#fbc814'];
+  const centerColors=['#b77b10','#a86c0c','#c98a16'];
+  const placed=[]; gardenEl.innerHTML='';
+  let tries=0;
+  while(placed.length<target&&tries<4000){
+    tries++;
+    const q=rand();
+    const s=Math.round(k*(q<0.32?26+rand()*20:q<0.82?48+rand()*32:88+rand()*38));
+    const x=rand()*(W-s), y=rand()*(H-s), cx=x+s/2, cy=y+s/2;
+    // no encima del sobre
+    if(x+s>ex.l&&x<ex.r&&y+s>ex.t&&y<ex.b)continue;
+    // no pegadas entre sí
+    let ok=true;
+    for(const f of placed){const d=Math.hypot(cx-f.cx,cy-f.cy);if(d<(s+f.s)/2*0.92){ok=false;break}}
+    if(!ok)continue;
+    placed.push({cx,cy,s});
+    const el=document.createElement('div');
+    el.className='flower';
+    el.style.cssText='--s:'+s+'px;--x:'+x.toFixed(1)+'px;--y:'+y.toFixed(1)+'px;--d:'+(3.4+rand()*2.6).toFixed(2)+'s;--pc:'+petalColors[Math.floor(rand()*petalColors.length)]+';--cc:'+centerColors[Math.floor(rand()*centerColors.length)]+';animation-delay:-'+(rand()*5).toFixed(2)+'s';
+    const off=rand()*72;
+    for(let i=0;i<5;i++){const p=document.createElement('i');p.className='p';p.style.transform='rotate('+(off+i*72).toFixed(1)+'deg) translateY(-13%)';el.appendChild(p)}
+    const c=document.createElement('i');c.className='c';el.appendChild(c);
+    gardenEl.appendChild(el);
+  }
+}
+buildGarden();
+let gardenTimer;window.addEventListener('resize',()=>{clearTimeout(gardenTimer);gardenTimer=setTimeout(buildGarden,150)});
+</script>
+</body>
+</html>
